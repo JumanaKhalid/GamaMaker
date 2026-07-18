@@ -34,7 +34,6 @@
             width: var(--a2-width);
             height: var(--a2-height);
             background-color: #fcfcf9;
-            /* خلفية شبكة بكسل كلاسيكية ناعمة جداً */
             background-image: 
                 linear-gradient(45deg, #f1f5f9 25%, transparent 25%, transparent 75%, #f1f5f9 75%, #f1f5f9),
                 linear-gradient(45deg, #f1f5f9 25%, transparent 25%, transparent 75%, #f1f5f9 75%, #f1f5f9);
@@ -44,7 +43,7 @@
             border: 10px solid #0f172a;
             border-radius: 30px;
             position: relative;
-            padding: 25px 35px 25px 35px;
+            padding: 20px 30px; /* تم تقليل الـ padding قليلاً لاحتواء العناصر */
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -58,7 +57,7 @@
             border: 5px solid #0f172a;
             border-radius: 18px;
             box-shadow: 6px 6px 0px #0f172a;
-            padding: 14px 16px;
+            padding: 10px 14px; /* تقليل التوسعة الداخلية (padding) لضغط الارتفاع */
             display: flex;
             flex-direction: column;
             transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -74,11 +73,11 @@
 
         /* ترويسة كرتونية رشيقة للبطاقة */
         .card-header {
-            font-size: 1.35rem;
+            font-size: 1.2rem; /* تصغير الخط قليلاً */
             font-weight: 800;
             border-bottom: 4px dashed #0f172a;
-            padding-bottom: 6px;
-            margin-bottom: 8px;
+            padding-bottom: 4px; /* تقليل المسافة السفلية */
+            margin-bottom: 6px; /* تقليل المسافة السفلية */
             display: flex;
             align-items: center;
             gap: 8px;
@@ -94,7 +93,7 @@
         }
 
         .bubble-tag {
-            font-size: 0.95rem;
+            font-size: 0.9rem; /* تصغير الخط */
             font-weight: 800;
             color: #1e293b;
             display: flex;
@@ -105,19 +104,19 @@
         .empty-bubble {
             background-color: rgba(255, 255, 255, 0.95);
             border: 3px solid #0f172a;
-            border-radius: 12px;
-            padding: 6px 10px;
-            font-size: 0.95rem;
+            border-radius: 10px; /* تقليل الانحناء */
+            padding: 4px 8px; /* تقليل التوسعة */
+            font-size: 0.9rem; /* تصغير الخط */
             font-weight: 700;
             color: #0f172a;
             outline: none;
             cursor: text;
             transition: all 0.2s;
             box-shadow: inset 1px 1px 3px rgba(0,0,0,0.05);
-            min-height: 38px;
+            min-height: 32px; /* تقليل الارتفاع الأدنى */
             display: flex;
             align-items: center;
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
         .empty-bubble:focus {
@@ -126,38 +125,48 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
 
+        /* إعداد نظام الـ Placeholders لجعل الخانات فارغة افتراضياً */
+        [contenteditable="true"]:empty:before {
+            content: attr(data-placeholder);
+            color: #94a3b8;
+            pointer-events: none;
+            display: block; /* For Firefox */
+            font-weight: 500;
+        }
+
         /* صناديق اختيار ريترو كرتونية */
         .check-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 1.05rem;
+            gap: 6px; /* تقليل المسافة */
+            font-size: 0.9rem; /* تصغير الخط */
             font-weight: 800;
             background-color: #ffffff;
-            padding: 6px 10px;
-            border-radius: 12px;
+            padding: 4px 8px; /* تقليل التوسعة */
+            border-radius: 10px;
             border: 3px solid #0f172a;
             cursor: pointer;
             transition: all 0.15s;
-            box-shadow: 3px 3px 0px #0f172a;
+            box-shadow: 2px 2px 0px #0f172a; /* تصغير الظل */
             user-select: none;
+            white-space: nowrap; /* منع نزول النص لسطر جديد إن أمكن */
         }
 
         .check-item:hover {
             transform: scale(1.02) translate(-1px, -1px);
-            box-shadow: 4px 4px 0px #0f172a;
+            box-shadow: 3px 3px 0px #0f172a;
         }
 
         .check-box {
-            width: 22px;
-            height: 22px;
-            border: 3px solid #0f172a;
+            width: 18px; /* تصغير المربع */
+            height: 18px;
+            border: 2px solid #0f172a;
             background-color: white;
-            border-radius: 6px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 900;
             color: #10b981;
             transition: background-color 0.2s;
@@ -169,11 +178,11 @@
             background-color: white;
             border: 3px solid #0f172a;
             color: #ea580c;
-            padding: 8px 16px;
-            border-radius: 16px;
-            font-size: 1.2rem;
+            padding: 6px 12px;
+            border-radius: 14px;
+            font-size: 1.1rem;
             font-weight: 800;
-            box-shadow: 4px 4px 0px #0f172a;
+            box-shadow: 3px 3px 0px #0f172a;
             cursor: pointer;
             transition: all 0.2s;
             user-select: none;
@@ -181,7 +190,7 @@
 
         .identity-badge:hover {
             transform: translateY(-2px);
-            box-shadow: 5px 5px 0px #0f172a;
+            box-shadow: 4px 4px 0px #0f172a;
         }
 
         /* ورقة التمبليت المخططة لكتابة البرومبت */
@@ -217,34 +226,22 @@
         /* العنوان الرئيسي بصورة سحابية مبهجة ومضغوطة الارتفاع */
         .main-title {
             background-color: white;
-            border: 5px solid #0f172a;
-            box-shadow: 6px 6px 0px #0f172a;
-            padding: 8px 30px;
-            border-radius: 20px;
+            border: 4px solid #0f172a;
+            box-shadow: 4px 4px 0px #0f172a;
+            padding: 6px 24px;
+            border-radius: 16px;
             display: inline-block;
-            font-size: 2.3rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #2563eb;
-            text-shadow: 2px 2px 0px #bfdbfe;
             position: relative;
         }
 
         .main-title::before {
-            content: '👾';
-            position: absolute;
-            right: -25px;
-            top: 50%;
-            transform: translateY(-50%) rotate(15deg);
-            font-size: 2rem;
+            content: '👾'; position: absolute; right: -25px; top: 50%; transform: translateY(-50%) rotate(15deg); font-size: 1.8rem;
         }
-
         .main-title::after {
-            content: '🎮';
-            position: absolute;
-            left: -25px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-15deg);
-            font-size: 2rem;
+            content: '🎮'; position: absolute; left: -25px; top: 50%; transform: translateY(-50%) rotate(-15deg); font-size: 1.8rem;
         }
 
         /* شريط تحكم علوي للتنقل والطباعة مع لوحة النقاط */
@@ -265,34 +262,22 @@
         }
 
         .nav-btn {
-            padding: 8px 18px;
-            font-size: 1.05rem;
+            padding: 6px 14px; /* تصغير الأزرار */
+            font-size: 0.95rem;
             font-weight: 800;
-            border-radius: 12px;
+            border-radius: 10px;
             border: 3px solid #0f172a;
             box-shadow: 3px 3px 0px #0f172a;
             cursor: pointer;
             transition: all 0.15s;
         }
 
-        .nav-btn:hover {
-            transform: translate(-1px, -1px);
-            box-shadow: 4px 4px 0px #0f172a;
-        }
+        .nav-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0px #0f172a; }
+        .nav-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #0f172a; }
 
-        .nav-btn:active {
-            transform: translate(2px, 2px);
-            box-shadow: 1px 1px 0px #0f172a;
-        }
-
-        /* زر الطابع النشط */
-        .stamp-btn {
-            transition: all 0.1s ease;
-        }
+        .stamp-btn { transition: all 0.1s ease; }
         .stamp-btn.active {
-            background-color: #fef08a !important;
-            border-color: #ca8a04 !important;
-            transform: scale(1.08);
+            background-color: #fef08a !important; border-color: #ca8a04 !important; transform: scale(1.08);
         }
 
         /* لوحة احتساب النقاط التفاعلية */
@@ -317,9 +302,7 @@
 
         /* إعدادات الطباعة الاحترافية للأحجام الكبيرة */
         @media print {
-            .no-print {
-                display: none !important;
-            }
+            .no-print { display: none !important; }
             body {
                 background: none !important;
                 background-color: white !important;
@@ -335,25 +318,19 @@
                 box-shadow: none !important;
                 page-break-after: always;
                 width: 100% !important;
-                height: 100% !important;
+                height: auto !important; /* السماح بتمدد الصفحة للمحتوى لتفادي القطع */
+                min-height: 100vh !important;
                 background-color: #ffffff !important;
             }
-            .pixel-card {
-                box-shadow: none !important;
-                border: 4px solid #0f172a !important;
+            /* تمدد الخانات لإظهار كل النص عند الطباعة */
+            .empty-bubble, .lined-paper, .pixel-card {
+                height: auto !important;
+                overflow: visible !important;
             }
-            .empty-bubble {
-                border: 2px solid #0f172a !important;
-                background-color: #ffffff !important;
-            }
-            .check-item {
-                box-shadow: none !important;
-                border: 2px solid #0f172a !important;
-            }
-            .identity-badge {
-                box-shadow: none !important;
-                border: 2px solid #0f172a !important;
-            }
+            .pixel-card { box-shadow: none !important; border: 4px solid #0f172a !important; }
+            .empty-bubble { border: 2px solid #0f172a !important; background-color: #ffffff !important; }
+            .check-item { box-shadow: none !important; border: 2px solid #0f172a !important; }
+            .identity-badge { box-shadow: none !important; border: 2px solid #0f172a !important; }
         }
     </style>
 </head>
@@ -361,33 +338,35 @@
 
     <!-- شريط التحكم العلوي التفاعلي (مخفي أثناء الطباعة) -->
     <div class="nav-controls no-print">
-        <div class="flex items-center gap-3 flex-wrap">
-            <span class="text-white text-base font-bold ml-2">🎮 لوحة تحكم المبتكر الصغير:</span>
-            <button onclick="showPage(1); playSound('coin');" id="btn-page1" class="nav-btn bg-yellow-400 text-slate-900 border-yellow-950">📄 المرحلة الأولى: فكرة لعبتي</button>
-            <button onclick="showPage(2); playSound('coin');" id="btn-page2" class="nav-btn bg-emerald-400 text-slate-900 border-emerald-950">🌴 المرحلة الثانية: تراثي ورسمتي</button>
-            <button onclick="showPage('all'); playSound('coin');" id="btn-pageall" class="nav-btn bg-sky-400 text-slate-900 border-sky-950">📚 عرض المرحلتين معاً</button>
-            <button onclick="window.print(); playSound('powerup');" class="nav-btn bg-rose-400 text-slate-900 border-rose-950 flex items-center gap-2">🖨️ طباعة أو حفظ PDF</button>
+        <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-white text-sm font-bold ml-1">🎮 لوحة تحكم:</span>
+            <button onclick="showPage(1); playSound('coin');" id="btn-page1" class="nav-btn bg-yellow-400 text-slate-900 border-yellow-950">1️⃣ فكرة لعبتي</button>
+            <button onclick="showPage(2); playSound('coin');" id="btn-page2" class="nav-btn bg-emerald-400 text-slate-900 border-emerald-950">2️⃣ تراثي ورسمتي</button>
+            <button onclick="showPage('all'); playSound('coin');" id="btn-pageall" class="nav-btn bg-sky-400 text-slate-900 border-sky-950">📚 عرض الكل</button>
+            <!-- زر تصفير اللعبة الجديد -->
+            <button onclick="resetGame();" class="nav-btn bg-purple-400 text-slate-900 border-purple-950">🔄 ابدأ من جديد</button>
+            <button onclick="window.print(); playSound('powerup');" class="nav-btn bg-rose-400 text-slate-900 border-rose-950">🖨️ طباعة</button>
         </div>
 
         <!-- لوحة احتساب النقاط الحية والترقية للأطفال -->
         <div class="score-board">
             <div class="flex flex-col items-start">
                 <span class="text-[10px] text-slate-300 font-bold leading-tight">🏆 رتبتك الإبداعية:</span>
-                <span id="player-rank" class="text-base font-black text-amber-300 leading-tight">مبتدئ 🌟</span>
+                <span id="player-rank" class="text-sm font-black text-amber-300 leading-tight">مبتدئ 🌟</span>
             </div>
-            <div class="h-8 w-[2px] bg-slate-700"></div>
+            <div class="h-6 w-[2px] bg-slate-700"></div>
             <div class="flex flex-col items-center px-1">
-                <span class="text-[10px] text-slate-300 font-bold leading-tight">🎯 نقاط الإبداع:</span>
-                <span id="player-score" class="text-xl font-black text-white leading-tight">0</span>
+                <span class="text-[10px] text-slate-300 font-bold leading-tight">🎯 النقاط:</span>
+                <span id="player-score" class="text-lg font-black text-white leading-tight">0</span>
             </div>
-            <div class="h-8 w-[2px] bg-slate-700"></div>
+            <div class="h-6 w-[2px] bg-slate-700"></div>
             <!-- شريط التقدم نحو اللقب الأسطوري -->
-            <div class="flex flex-col w-28">
+            <div class="flex flex-col w-24">
                 <div class="flex justify-between text-[9px] text-slate-300 font-bold mb-0.5">
                     <span>التقدم للأسطورة</span>
                     <span id="progress-text">0%</span>
                 </div>
-                <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden border border-slate-600">
+                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden border border-slate-600">
                     <div id="score-progress" class="bg-gradient-to-r from-amber-400 to-emerald-400 h-full w-[0%] transition-all duration-300"></div>
                 </div>
             </div>
@@ -397,46 +376,44 @@
     <!-- ================= المرحلة الأولى ================= -->
     <div id="page1" class="a2-page">
         <!-- العنوان الرئيسي ومعلومات المبتكرين -->
-        <header class="text-center mb-4 shrink-0 flex flex-col items-center gap-3">
+        <header class="text-center mb-3 shrink-0 flex flex-col items-center gap-2">
             <h1 class="main-title">👾 استوديو ابتكار الألعاب الثقافية 🎮</h1>
             
-            <!-- معلومات طاقم العمل بتصميم بطاقة ريتور ممتع وموفر للمساحة -->
-            <div class="flex gap-3 items-center bg-yellow-50 border-4 border-slate-900 px-6 py-2 rounded-2xl shadow-[4px_4px_0px_#0f172a] text-lg font-extrabold">
-                <span class="text-slate-900">✍️ المبتكرون (فريق تطوير اللعبة):</span>
-                <div id="creators-input" class="border-b-3 border-dashed border-slate-900 px-3 py-0.5 min-w-[320px] text-blue-600 outline-none text-center" contenteditable="true" oninput="handleTextInput(this); updateLivePrompt();">اضغط هنا واكتب أسماء أبطال فريقك! 🚀</div>
+            <div class="flex gap-2 items-center bg-yellow-50 border-3 border-slate-900 px-4 py-1.5 rounded-xl shadow-[3px_3px_0px_#0f172a] text-base font-extrabold">
+                <span class="text-slate-900">✍️ المبتكرون:</span>
+                <!-- استخدام Placeholder ليكون الحقل فارغاً في البداية -->
+                <div id="p1-creators" class="border-b-2 border-dashed border-slate-900 px-2 min-w-[250px] text-blue-600 outline-none text-center" contenteditable="true" data-placeholder="اكتب أسماء أبطال فريقك هنا! 🚀" oninput="handleTextInput(this)"></div>
             </div>
         </header>
 
-        <!-- شبكة تخطيط العناصر (3 أعمدة × 3 صفوف) بحجم مضغوط ومدروس ليناسب مقاس A2 دون تجاوز -->
-        <div class="grid grid-cols-3 grid-rows-3 gap-4 flex-grow">
+        <!-- شبكة تخطيط العناصر (3 أعمدة × 3 صفوف) بحجم مضغوط ومدروس -->
+        <div class="grid grid-cols-3 grid-rows-3 gap-3 flex-grow">
             
             <!-- 1. فكرة اللعبة -->
             <div class="pixel-card bg-rose-50 text-rose-950">
                 <h2 class="card-header border-rose-900 text-rose-900"><span>💡</span> فكرة لعبتي</h2>
                 <div class="flex flex-col gap-1.5 flex-grow justify-between">
-                    <!-- حقل اسم اللعبة - بارز جداً ومطلوب -->
                     <div class="bubble-container">
                         <span class="bubble-tag">👑 اسم اللعبة المميز:</span>
-                        <div id="game-name" class="empty-bubble text-rose-950 bg-rose-100/50 border-rose-400 font-extrabold text-base" contenteditable="true" oninput="handleTextInput(this); updateLivePrompt();">اكتب هنا اسم لعبتك الرائعة...</div>
+                        <div id="p1-gamename" class="empty-bubble text-rose-950 bg-rose-100/50 border-rose-400 font-extrabold" contenteditable="true" data-placeholder="اسم لعبتك الرائعة..." oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
                         <span class="bubble-tag">📝 فكرة اللعبة العامة:</span>
-                        <div class="empty-bubble text-rose-800" contenteditable="true" oninput="handleTextInput(this);">ما هي لعبتك باختصار؟ (جملة مشوقة تفهمها عائلتك)</div>
+                        <div id="p1-gamedesc" class="empty-bubble text-rose-800 text-sm" contenteditable="true" data-placeholder="جملة مشوقة عن فكرة لعبتك..." oninput="handleTextInput(this)"></div>
                     </div>
-                    <!-- شبكة داخلية لضغط الارتفاع -->
                     <div class="grid grid-cols-2 gap-2">
                         <div class="bubble-container">
-                            <span class="bubble-tag">🎮 نوع اللعبة المختار:</span>
-                            <div class="empty-bubble text-rose-800 text-xs min-h-[34px]" contenteditable="true" oninput="handleTextInput(this);">مثال: مغامرات، قفز وبحث</div>
+                            <span class="bubble-tag">🎮 نوع اللعبة:</span>
+                            <div id="p1-gametype" class="empty-bubble text-rose-800 text-xs" contenteditable="true" data-placeholder="مثال: مغامرات، ألغاز" oninput="handleTextInput(this)"></div>
                         </div>
                         <div class="bubble-container">
-                            <span class="bubble-tag">📱 أجهزة اللعب المفضلة:</span>
-                            <div class="empty-bubble text-rose-800 text-xs min-h-[34px]" contenteditable="true" oninput="handleTextInput(this);">مثال: آيباد، جوال، كمبيوتر</div>
+                            <span class="bubble-tag">📱 أجهزة اللعب:</span>
+                            <div class="empty-bubble text-rose-800 text-xs" contenteditable="true" data-placeholder="مثال: آيباد، جوال" oninput="handleTextInput(this)"></div>
                         </div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">👥 الجمهور واللاعبون المستهدفون:</span>
-                        <div class="empty-bubble text-rose-800" contenteditable="true" oninput="handleTextInput(this);">من سيلعب لعبتك؟ (مثال: أصدقائي في المدرسة)</div>
+                        <span class="bubble-tag">👥 الجمهور المستهدف:</span>
+                        <div class="empty-bubble text-rose-800 text-sm" contenteditable="true" data-placeholder="من سيلعب لعبتك؟" oninput="handleTextInput(this)"></div>
                     </div>
                 </div>
             </div>
@@ -444,18 +421,18 @@
             <!-- 2. القصة والعالم -->
             <div class="pixel-card bg-sky-50 text-sky-950">
                 <h2 class="card-header border-sky-900 text-sky-900"><span>🌍</span> القصة والمكان</h2>
-                <div class="flex flex-col gap-2 flex-grow justify-between">
+                <div class="flex flex-col gap-1.5 flex-grow justify-between">
                     <div class="bubble-container">
                         <span class="bubble-tag">🎬 بداية القصة والمغامرة:</span>
-                        <div class="empty-bubble text-sky-800" contenteditable="true" oninput="handleTextInput(this);">كيف تبدأ القصة المشوقة في لعبتك؟</div>
+                        <div id="p1-story" class="empty-bubble text-sky-800 text-sm" contenteditable="true" data-placeholder="كيف تبدأ القصة المشوقة؟" oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
                         <span class="bubble-tag">🎯 مهمة البطل الأساسية:</span>
-                        <div class="empty-bubble text-sky-800" contenteditable="true" oninput="handleTextInput(this);">ما الذي يحاول البطل تحقيقه؟ (مثال: إنقاذ الواحة)</div>
+                        <div id="p1-mission" class="empty-bubble text-sky-800 text-sm" contenteditable="true" data-placeholder="ما الذي يحاول البطل تحقيقه؟" oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">🏝️ مكان اللعب (البيئة الافتراضية):</span>
-                        <div class="empty-bubble text-sky-800" contenteditable="true" oninput="handleTextInput(this);">أين تدور الأحداث؟ (مثال: وسط النخيل، في قرية تراثية)</div>
+                        <span class="bubble-tag">🏝️ مكان اللعب (البيئة):</span>
+                        <div id="p1-location" class="empty-bubble text-sky-800 text-sm" contenteditable="true" data-placeholder="أين تدور الأحداث؟" oninput="handleTextInput(this)"></div>
                     </div>
                 </div>
             </div>
@@ -463,18 +440,18 @@
             <!-- 3. أبطال اللعبة -->
             <div class="pixel-card bg-emerald-50 text-emerald-950">
                 <h2 class="card-header border-emerald-900 text-emerald-900"><span>🦸‍♂️</span> أبطال اللعبة</h2>
-                <div class="flex flex-col gap-2 flex-grow justify-between">
+                <div class="flex flex-col gap-1.5 flex-grow justify-between">
                     <div class="bubble-container">
                         <span class="bubble-tag">👕 شكل ولون بطل اللعبة:</span>
-                        <div class="empty-bubble text-emerald-800" contenteditable="true" oninput="handleTextInput(this);">كيف يبدو شكل البطل؟ وما هي ملابسه؟</div>
+                        <div id="p1-hero" class="empty-bubble text-emerald-800 text-sm" contenteditable="true" data-placeholder="كيف يبدو شكل البطل وملابسه؟" oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">⚡ قوة البطل الخارقة والمميزة:</span>
-                        <div class="empty-bubble text-emerald-800" contenteditable="true" oninput="handleTextInput(this);">ما هي الحركة الخاصة التي يتقنها؟ (مثال: القفز العالي)</div>
+                        <span class="bubble-tag">⚡ قوة البطل الخارقة:</span>
+                        <div id="p1-power" class="empty-bubble text-emerald-800 text-sm" contenteditable="true" data-placeholder="ما هي حركته المميزة؟" oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
                         <span class="bubble-tag">😈 المنافس الشرير أو الخصم:</span>
-                        <div class="empty-bubble text-emerald-800" contenteditable="true" oninput="handleTextInput(this);">من الذي يحاول منع البطل من الفوز في اللعبة؟</div>
+                        <div id="p1-enemy" class="empty-bubble text-emerald-800 text-sm" contenteditable="true" data-placeholder="من يعيق البطل؟" oninput="handleTextInput(this)"></div>
                     </div>
                 </div>
             </div>
@@ -482,24 +459,24 @@
             <!-- 4. كيف نلعب؟ -->
             <div class="pixel-card bg-amber-50 text-amber-950">
                 <h2 class="card-header border-amber-900 text-amber-900"><span>⚙️</span> كيف نلعب؟</h2>
-                <div class="flex flex-col gap-2 flex-grow justify-between">
+                <div class="flex flex-col gap-1.5 flex-grow justify-between">
                     <div class="grid grid-cols-2 gap-2">
                         <div class="bubble-container">
-                            <span class="bubble-tag">🏆 قوانين الفوز والخسارة:</span>
-                            <div class="empty-bubble text-amber-800 text-xs min-h-[38px]" contenteditable="true" oninput="handleTextInput(this);">كيف يفوز اللاعب بالكامل ومتى يخسر؟</div>
+                            <span class="bubble-tag">🏆 الفوز والخسارة:</span>
+                            <div class="empty-bubble text-amber-800 text-xs" contenteditable="true" data-placeholder="كيف يفوز ويخسر؟" oninput="handleTextInput(this)"></div>
                         </div>
                         <div class="bubble-container">
-                            <span class="bubble-tag">🕹️ طريقة تحريك البطل والتوجيه:</span>
-                            <div class="empty-bubble text-amber-800 text-xs min-h-[38px]" contenteditable="true" oninput="handleTextInput(this);">كيف نتحكم باللاعب؟ (مثال: أزرار سهمية)</div>
+                            <span class="bubble-tag">🕹️ طريقة التحريك:</span>
+                            <div class="empty-bubble text-amber-800 text-xs" contenteditable="true" data-placeholder="أزرار أم لمس؟" oninput="handleTextInput(this)"></div>
                         </div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">🚧 العقبات والمخاطر في الطريق:</span>
-                        <div class="empty-bubble text-amber-800" contenteditable="true" oninput="handleTextInput(this);">ما الذي يجب على البطل تجنبه؟ (مثال: حفر طينية، كرات صخرية)</div>
+                        <span class="bubble-tag">🚧 العقبات والمخاطر:</span>
+                        <div class="empty-bubble text-amber-800 text-sm" contenteditable="true" data-placeholder="ما الذي يجب تجنبه؟" oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">🍒 العناصر التي يجمعها البطل:</span>
-                        <div class="empty-bubble text-amber-800" contenteditable="true" oninput="handleTextInput(this);">ماذا يلتقط البطل أثناء سيره؟ (تمور، نجوم ذهبية)</div>
+                        <span class="bubble-tag">🍒 العناصر التي يجمعها:</span>
+                        <div class="empty-bubble text-amber-800 text-sm" contenteditable="true" data-placeholder="ماذا يلتقط البطل؟" oninput="handleTextInput(this)"></div>
                     </div>
                 </div>
             </div>
@@ -507,18 +484,18 @@
             <!-- 5. شكل المراحل -->
             <div class="pixel-card bg-purple-50 text-purple-950">
                 <h2 class="card-header border-purple-900 text-purple-900"><span>🏰</span> شكل المراحل</h2>
-                <div class="flex flex-col gap-2 flex-grow justify-between">
+                <div class="flex flex-col gap-1.5 flex-grow justify-between">
                     <div class="bubble-container">
                         <span class="bubble-tag">🗺️ تخطيط مسار المراحل:</span>
-                        <div class="empty-bubble text-purple-800" contenteditable="true" oninput="handleTextInput(this);">كيف تتدرج الصعوبة؟ هل توجد طرق سرية؟</div>
+                        <div class="empty-bubble text-purple-800 text-sm" contenteditable="true" data-placeholder="كيف تتدرج الصعوبة؟" oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">🧩 الألغاز التي تتطلب تفكيراً:</span>
-                        <div class="empty-bubble text-purple-800" contenteditable="true" oninput="handleTextInput(this);">ما المشكلة الذكية التي يحلها اللاعب؟ (مثال: مفتاح مخبأ)</div>
+                        <span class="bubble-tag">🧩 الألغاز والتفكير:</span>
+                        <div class="empty-bubble text-purple-800 text-sm" contenteditable="true" data-placeholder="ما اللغز الذي يحله؟" oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">👾 أماكن توزيع الأعداء والحراس:</span>
-                        <div class="empty-bubble text-purple-800" contenteditable="true" oninput="handleTextInput(this);">أين يقف الأشرار الصغار لحراسة الأبواب؟</div>
+                        <span class="bubble-tag">👾 أماكن الأعداء:</span>
+                        <div class="empty-bubble text-purple-800 text-sm" contenteditable="true" data-placeholder="أين يقف الأشرار؟" oninput="handleTextInput(this)"></div>
                     </div>
                 </div>
             </div>
@@ -529,21 +506,21 @@
                 <div class="flex flex-col gap-1.5 flex-grow justify-between">
                     <div class="grid grid-cols-2 gap-2">
                         <div class="bubble-container">
-                            <span class="bubble-tag">🖼️ المظهر البصري العام:</span>
-                            <div class="empty-bubble text-orange-800 text-xs min-h-[38px]" contenteditable="true" oninput="handleTextInput(this);">كيف تبدو الرسوم؟ (مثال: بكسل ملون)</div>
+                            <span class="bubble-tag">🖼️ المظهر البصري:</span>
+                            <div class="empty-bubble text-orange-800 text-xs" contenteditable="true" data-placeholder="بكسل أم 3D؟" oninput="handleTextInput(this)"></div>
                         </div>
                         <div class="bubble-container">
-                            <span class="bubble-tag">🎨 لوحة الألوان الأساسية:</span>
-                            <div class="empty-bubble text-orange-800 text-xs min-h-[38px]" contenteditable="true" oninput="handleTextInput(this);">أخضر النخيل، أصفر الرمال</div>
+                            <span class="bubble-tag">🎨 لوحة الألوان:</span>
+                            <div class="empty-bubble text-orange-800 text-xs" contenteditable="true" data-placeholder="الألوان الأساسية" oninput="handleTextInput(this)"></div>
                         </div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">📱 تصميم واجهة المستخدم وأزرار القفز:</span>
-                        <div class="empty-bubble text-orange-800" contenteditable="true" oninput="handleTextInput(this);">كيف تبدو قائمة البداية وأشكال أزرار اللعب؟</div>
+                        <span class="bubble-tag">📱 واجهة المستخدم:</span>
+                        <div class="empty-bubble text-orange-800 text-sm" contenteditable="true" data-placeholder="شكل القوائم والأزرار" oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">🎵 المؤثرات الصوتية والموسيقى:</span>
-                        <div class="empty-bubble text-orange-800" contenteditable="true" oninput="handleTextInput(this);">كيف يبدو صوت القفز وصوت الفوز وصوت الخسارة؟</div>
+                        <span class="bubble-tag">🎵 الأصوات:</span>
+                        <div class="empty-bubble text-orange-800 text-sm" contenteditable="true" data-placeholder="موسيقى اللعبة" oninput="handleTextInput(this)"></div>
                     </div>
                 </div>
             </div>
@@ -551,50 +528,55 @@
             <!-- 7. الجوائز والمكافآت -->
             <div class="pixel-card bg-teal-50 text-teal-950">
                 <h2 class="card-header border-teal-900 text-teal-900"><span>💎</span> الجوائز والمكافآت</h2>
-                <div class="flex flex-col gap-2 flex-grow justify-between">
+                <div class="flex flex-col gap-1.5 flex-grow justify-between">
                     <div class="bubble-container">
-                        <span class="bubble-tag">🪙 طرق كسب النقاط والقطع النقدية:</span>
-                        <div class="empty-bubble text-teal-800" contenteditable="true" oninput="handleTextInput(this);">ما الأفعال التي تزيد رصيد اللاعب من الذهب؟</div>
+                        <span class="bubble-tag">🪙 طرق كسب النقاط:</span>
+                        <div class="empty-bubble text-teal-800 text-sm" contenteditable="true" data-placeholder="كيف يربح الذهب؟" oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">🛒 متجر اللعبة المخصص للشراء:</span>
-                        <div class="empty-bubble text-teal-800" contenteditable="true" oninput="handleTextInput(this);">ماذا يشتري اللاعب بنقاطه؟ (ملابس بطل جديدة، طاقة إضافية)</div>
+                        <span class="bubble-tag">🛒 متجر اللعبة:</span>
+                        <div class="empty-bubble text-teal-800 text-sm" contenteditable="true" data-placeholder="ماذا يشتري؟" oninput="handleTextInput(this)"></div>
                     </div>
                     <div class="bubble-container">
-                        <span class="bubble-tag">📈 تطوير مهارات وقدرات البطل:</span>
-                        <div class="empty-bubble text-teal-800" contenteditable="true" oninput="handleTextInput(this);">كيف يصبح البطل أسرع أو أكثر تحملاً للضربات؟</div>
+                        <span class="bubble-tag">📈 تطوير البطل:</span>
+                        <div class="empty-bubble text-teal-800 text-sm" contenteditable="true" data-placeholder="كيف يصبح أقوى؟" oninput="handleTextInput(this)"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- 8. لعبة تلهمني -->
+            <!-- 8. لعبة تلهمني (تنسيق مدمج لضمان ظهور كل العناصر) -->
             <div class="pixel-card bg-indigo-50 text-indigo-950">
                 <h2 class="card-header border-indigo-900 text-indigo-900"><span>💡</span> لعبة أحبها وتشبه لعبتي</h2>
-                <div class="grid grid-cols-2 gap-2 mt-1 justify-center content-start">
+                <div class="flex flex-wrap gap-1.5 mt-1 justify-center">
                     <div class="check-item game-inspire" onclick="toggleCheck(this, 'ماريو')"><div class="check-box"></div> ماريو 🍄</div>
                     <div class="check-item game-inspire" onclick="toggleCheck(this, 'صائد البط')"><div class="check-box"></div> صائد البط 🦆</div>
                     <div class="check-item game-inspire" onclick="toggleCheck(this, 'ماين كرافت')"><div class="check-box"></div> ماين كرافت 🧱</div>
                     <div class="check-item game-inspire" onclick="toggleCheck(this, 'باك مان')"><div class="check-box"></div> باك مان 👾</div>
                     <div class="check-item game-inspire" onclick="toggleCheck(this, 'أونو')"><div class="check-box"></div> أونو 🃏</div>
-                    <div class="check-item game-inspire" onclick="toggleCheck(this, 'سيارات')"><div class="check-box"></div> سيارات 🚗</div>
-                    <div class="check-item col-span-2" onclick="toggleCheck(this, 'ألعاب أخرى')">
+                    <div class="check-item game-inspire" onclick="toggleCheck(this, 'روبلوكس')"><div class="check-box"></div> روبلوكس 🟦</div>
+                    <div class="check-item game-inspire" onclick="toggleCheck(this, 'شطرنج')"><div class="check-box"></div> شطرنج ♟️</div>
+                    <div class="check-item game-inspire" onclick="toggleCheck(this, 'لعبة سيارات')"><div class="check-box"></div> سيارات 🏎️</div>
+                    <div class="check-item game-inspire" onclick="toggleCheck(this, 'لعبة ألغاز')"><div class="check-box"></div> ألغاز 🧩</div>
+                    <div class="check-item game-inspire" onclick="toggleCheck(this, 'متاهة')"><div class="check-box"></div> متاهة 🌀</div>
+                    <div class="check-item w-full flex" onclick="toggleCheck(this, 'أخرى')">
                         <div class="check-box"></div> 
-                        <span class="flex-grow text-xs">ألعاب أخرى: <span id="other-games" class="border-b-2 border-slate-700 w-1/2 inline-block h-4 outline-none" contenteditable="true" onclick="event.stopPropagation();" oninput="handleTextInput(this); updateLivePrompt();">............</span></span>
+                        <span class="flex-grow text-xs flex items-center ml-1">أخرى: <div id="other-games" class="border-b-2 border-slate-700 flex-grow mx-1 min-h-[16px] outline-none" contenteditable="true" onclick="event.stopPropagation();" oninput="handleTextInput(this);"></div></span>
                     </div>
                 </div>
             </div>
 
-            <!-- 9. برنامج ذكي سيساعدني -->
+            <!-- 9. برنامج ذكي (تنسيق مدمج لضمان الظهور) -->
             <div class="pixel-card bg-fuchsia-50 text-fuchsia-950">
                 <h2 class="card-header border-fuchsia-900 text-fuchsia-900"><span>🤖</span> برنامج ذكي سيساعدني</h2>
-                <div class="grid grid-cols-2 gap-1.5 mt-1 justify-center content-start">
+                <div class="flex flex-wrap gap-1.5 mt-1 justify-center">
                     <div class="check-item tools-use" onclick="toggleCheck(this, 'Gemini')"><div class="check-box"></div> Gemini 🤖</div>
                     <div class="check-item tools-use" onclick="toggleCheck(this, 'Canvas')"><div class="check-box"></div> Canvas 🎨</div>
                     <div class="check-item tools-use" onclick="toggleCheck(this, 'Canva')"><div class="check-box"></div> Canva 🖌️</div>
                     <div class="check-item tools-use" onclick="toggleCheck(this, 'RosebudAI')"><div class="check-box"></div> RosebudAI ✨</div>
                     <div class="check-item tools-use" onclick="toggleCheck(this, 'Copilot')"><div class="check-box"></div> Copilot 💻</div>
+                    <div class="check-item tools-use" onclick="toggleCheck(this, 'Claude')"><div class="check-box"></div> Claude 🧠</div>
                     <div class="check-item tools-use" onclick="toggleCheck(this, 'Gdevelop')"><div class="check-box"></div> Gdevelop 🕹️</div>
-                    <div class="check-item col-span-2 tools-use" onclick="toggleCheck(this, 'Arcade Make Code')"><div class="check-box"></div> Arcade Make Code 👾</div>
+                    <div class="check-item tools-use w-full justify-center" onclick="toggleCheck(this, 'Arcade Make Code')"><div class="check-box"></div> Arcade Make Code 👾</div>
                 </div>
             </div>
 
@@ -603,20 +585,17 @@
 
     <!-- ================= المرحلة الثانية ================= -->
     <div id="page2" class="a2-page">
-        <!-- العنوان الرئيسي المحدث للمرحلة الثانية -->
-        <header class="text-center mb-4 shrink-0 flex flex-col items-center gap-2">
+        <header class="text-center mb-3 shrink-0 flex flex-col items-center gap-2">
             <h1 class="main-title text-emerald-600 border-emerald-800 shadow-emerald-800">🌴 أشياء أحبها في الأحساء وأريدها في لعبتي 🌴</h1>
         </header>
 
-        <!-- التخطيط: صف علوي، وصف سفلي مقسم لقسمين -->
         <div class="flex flex-col gap-4 flex-grow">
-            
-            <!-- الخانة الأولى: عناصر الهوية الأحسائية التفاعلية (10 نقاط لكل عنصر!) -->
+            <!-- تراث الأحساء -->
             <div class="pixel-card bg-orange-50 text-orange-950 shrink-0">
-                <h2 class="card-header border-orange-900 text-orange-900 text-xl pb-2">
-                    <span>🏺</span> تراث الأحساء الجميل (اضغط على الأشياء التي تريد إضافتها للعبتك لتضيء وتكسب <span class="text-emerald-600 font-black">+10 نقاط</span> لكل منها!)
+                <h2 class="card-header border-orange-900 text-orange-900 text-lg pb-1">
+                    <span>🏺</span> تراث الأحساء الجميل (اختر الأشياء لتضيء وتكسب <span class="text-emerald-600 font-black">+10 نقاط</span>!)
                 </h2>
-                <div class="flex flex-wrap gap-3 justify-center py-2">
+                <div class="flex flex-wrap gap-2.5 justify-center py-2">
                     <span class="identity-badge" onclick="toggleBadge(this, 'جبل القارة')">⛰️ جبل القارة</span>
                     <span class="identity-badge" onclick="toggleBadge(this, 'بحيرة الأصفر')">🦆 بحيرة الأصفر</span>
                     <span class="identity-badge" onclick="toggleBadge(this, 'ميناء العقير')">⛵ ميناء العقير</span>
@@ -624,62 +603,53 @@
                     <span class="identity-badge" onclick="toggleBadge(this, 'عيون الأحساء')">💧 عيون الأحساء</span>
                     <span class="identity-badge" onclick="toggleBadge(this, 'البشت الحساوي')">🧥 البشت الحساوي</span>
                     <span class="identity-badge" onclick="toggleBadge(this, 'ثوب النشل')">👗 ثوب النشل</span>
-                    <span class="identity-badge" onclick="toggleBadge(this, 'الزخارف الجصية الأحسائية')">🏛️ الزخارف الجصية الأحسائية</span>
+                    <span class="identity-badge" onclick="toggleBadge(this, 'الزخارف الجصية')">🏛️ الزخارف الجصية</span>
                     <span class="identity-badge" onclick="toggleBadge(this, 'حرفة الفخار')">🏺 حرفة الفخار</span>
                     <span class="identity-badge" onclick="toggleBadge(this, 'حرفة الخوص')">🧺 حرفة الخوص</span>
                     <span class="identity-badge" onclick="toggleBadge(this, 'التمور اللذيذة')">🍯 التمور اللذيذة</span>
                 </div>
             </div>
 
-            <!-- القسم السفلي مقسم بين برومبت الذكاء الاصطناعي ومساحة الرسم التفاعلية الممتازة -->
             <div class="grid grid-cols-2 gap-4 flex-grow">
-                
-                <!-- الخانة الثانية: الأوامر الموجهة للذكاء الاصطناعي الذكية وتلقائية الصياغة -->
+                <!-- خانة البرومبت التلقائي المحدثة -->
                 <div class="pixel-card bg-purple-50 text-purple-950 flex flex-col">
-                    <h2 class="card-header border-purple-900 text-purple-900 text-2xl pb-1.5"><span>✨</span> كلام ذكي ومكتب للكمبيوتر (Prompt)</h2>
-                    <p class="text-sm font-bold mb-1 text-purple-700">✍️ الذكاء الاصطناعي يقوم بصياغة فكرتك تلقائياً بناءً على اختياراتك في الأعلى لبرمجة اللعبة فوراً:</p>
-                    <div id="ai-prompt-box" class="lined-paper flex-grow overflow-y-auto text-base" contenteditable="true" oninput="handleTextInput(this);">
-                        اصنع لي لعبة مغامرات ثنائية الأبعاد في واحة الأحساء الجميلة. البطة اللطيفة في بحيرة الأصفر تبحث عن التمور اللذيذة لتجمعها، بينما يتسلق البطل جبل القارة متجاوزاً الحفر والعقبات ليفتح الكنز السري للبشت الحساوي الذهبي!
-                    </div>
+                    <h2 class="card-header border-purple-900 text-purple-900 text-xl pb-1.5"><span>✨</span> كلام ذكي للكمبيوتر (Prompt)</h2>
+                    <p class="text-xs font-bold mb-1 text-purple-700">✍️ بناءً على بيانات الصفحة الأولى واختياراتك، تم صياغة هذا الطلب لتبرمج لعبتك فوراً:</p>
+                    <div id="ai-prompt-box" class="lined-paper flex-grow overflow-y-auto text-base" contenteditable="true" data-placeholder="سيتم كتابة وصف اللعبة هنا تلقائياً بناءً على ما تعبئه في الصفحة الأولى واختياراتك للتراث..."></div>
                 </div>
 
-                <!-- الخانة الثالثة: ارسم واجهة اللعبة - لوحة بكسل مخصصة مع شريط أدوات سحري وعريض للرؤية -->
+                <!-- مساحة الرسم -->
                 <div class="pixel-card bg-slate-50 text-slate-900 flex flex-col">
-                    <h2 class="card-header border-slate-900 text-slate-900 text-2xl pb-1.5"><span>🖌️</span> ارسم شاشة لعبتك هنا! (استخدم الفرشاة أو الطوابع السحرية)</h2>
+                    <h2 class="card-header border-slate-900 text-slate-900 text-xl pb-1.5"><span>🖌️</span> ارسم شاشة لعبتك هنا!</h2>
                     <div class="blueprint-canvas flex flex-col justify-end relative overflow-hidden">
-                        <!-- مساحة قماش الرسم التفاعلية -->
                         <canvas id="drawing-canvas" class="absolute inset-0 w-full h-full cursor-crosshair z-0"></canvas>
                         
-                        <!-- عناصر التحكم بالرسم والألوان والطوابع (تم تفعيل شريط الألوان بالكامل) -->
                         <div class="absolute bottom-2 left-2 right-2 bg-white/95 backdrop-blur border-3 border-slate-900 p-2 rounded-xl flex flex-col gap-1.5 z-10 no-print shadow-md">
-                            <!-- أدوات الطوابع السحرية -->
                             <div class="flex items-center gap-1.5 justify-between border-b pb-1.5 border-slate-200">
-                                <span class="text-[10px] font-black text-slate-700">🎨 الطوابع السحرية:</span>
+                                <span class="text-[10px] font-black text-slate-700">🎨 طوابع:</span>
                                 <div class="flex gap-1 flex-wrap">
-                                    <button onclick="selectTool('brush', this)" class="stamp-btn active px-1.5 py-0.5 bg-slate-100 hover:bg-slate-200 border-2 border-slate-800 rounded-md text-[10px] font-bold" title="فرشاة رسم">🖌️ فرشاة</button>
-                                    <button onclick="selectTool('stamp', this, '🌴')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 hover:bg-slate-200 border-2 border-slate-800 rounded-md text-[10px] font-bold" title="شجرة نخل">🌴 نخلة</button>
-                                    <button onclick="selectTool('stamp', this, '⛰️')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 hover:bg-slate-200 border-2 border-slate-800 rounded-md text-[10px] font-bold" title="جبل القارة">⛰️ جبل</button>
-                                    <button onclick="selectTool('stamp', this, '🍯')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 hover:bg-slate-200 border-2 border-slate-800 rounded-md text-[10px] font-bold" title="تمور لذيذة">🍯 تمور</button>
-                                    <button onclick="selectTool('stamp', this, '👾')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 hover:bg-slate-200 border-2 border-slate-800 rounded-md text-[10px] font-bold" title="وحش بكسل">👾 وحش</button>
-                                    <button onclick="selectTool('stamp', this, '🦸‍♂️')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 hover:bg-slate-200 border-2 border-slate-800 rounded-md text-[10px] font-bold" title="بطل مغامر">🦸‍♂️ بطل</button>
-                                    <button onclick="selectTool('stamp', this, '💎')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 hover:bg-slate-200 border-2 border-slate-800 rounded-md text-[10px] font-bold" title="جوائز مذهلة">💎 جوهرة</button>
+                                    <button onclick="selectTool('brush', this)" class="stamp-btn active px-1.5 py-0.5 bg-slate-100 border-2 border-slate-800 rounded-md text-[10px] font-bold">🖌️ فرشاة</button>
+                                    <button onclick="selectTool('stamp', this, '🌴')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 border-2 border-slate-800 rounded-md text-[10px] font-bold">🌴 نخلة</button>
+                                    <button onclick="selectTool('stamp', this, '⛰️')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 border-2 border-slate-800 rounded-md text-[10px] font-bold">⛰️ جبل</button>
+                                    <button onclick="selectTool('stamp', this, '🍯')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 border-2 border-slate-800 rounded-md text-[10px] font-bold">🍯 تمور</button>
+                                    <button onclick="selectTool('stamp', this, '👾')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 border-2 border-slate-800 rounded-md text-[10px] font-bold">👾 وحش</button>
+                                    <button onclick="selectTool('stamp', this, '🦸‍♂️')" class="stamp-btn px-1.5 py-0.5 bg-slate-100 border-2 border-slate-800 rounded-md text-[10px] font-bold">🦸‍♂️ بطل</button>
                                 </div>
                             </div>
                             
-                            <!-- أدوات الألوان ومسح وحفظ اللوحة (شريط الألوان متاح بأزرار وضوح w-8 h-8 بيكسل كاملة) -->
                             <div class="flex justify-between items-center">
                                 <div class="flex items-center gap-1.5">
-                                    <span class="text-[10px] font-black text-slate-700">الألوان:</span>
-                                    <button onclick="setBrushColor('#e11d48', this)" class="w-8 h-8 rounded-full border-3 border-slate-900 bg-rose-600 scale-110 active-brush-btn" title="أحمر"></button>
-                                    <button onclick="setBrushColor('#2563eb', this)" class="w-8 h-8 rounded-full border-3 border-slate-900 bg-blue-600" title="أزرق"></button>
-                                    <button onclick="setBrushColor('#16a34a', this)" class="w-8 h-8 rounded-full border-3 border-slate-900 bg-green-600" title="أخضر"></button>
-                                    <button onclick="setBrushColor('#ea580c', this)" class="w-8 h-8 rounded-full border-3 border-slate-900 bg-orange-600" title="برتقالي"></button>
-                                    <button onclick="setBrushColor('#ca8a04', this)" class="w-8 h-8 rounded-full border-3 border-slate-900 bg-yellow-600" title="أصفر"></button>
-                                    <button onclick="setBrushColor('#000000', this)" class="w-8 h-8 rounded-full border-3 border-slate-900 bg-black" title="أسود"></button>
+                                    <button onclick="setBrushColor('#e11d48', this)" class="w-7 h-7 rounded-full border-2 border-slate-900 bg-rose-600 scale-110 active-brush-btn"></button>
+                                    <button onclick="setBrushColor('#2563eb', this)" class="w-7 h-7 rounded-full border-2 border-slate-900 bg-blue-600"></button>
+                                    <button onclick="setBrushColor('#16a34a', this)" class="w-7 h-7 rounded-full border-2 border-slate-900 bg-green-600"></button>
+                                    <button onclick="setBrushColor('#ea580c', this)" class="w-7 h-7 rounded-full border-2 border-slate-900 bg-orange-600"></button>
+                                    <button onclick="setBrushColor('#000000', this)" class="w-7 h-7 rounded-full border-2 border-slate-900 bg-black"></button>
+                                    <!-- ممحاة مضافة حديثاً -->
+                                    <button onclick="setBrushColor('#ffffff', this)" class="w-7 h-7 rounded-full border-2 border-dashed border-slate-900 bg-white flex items-center justify-center text-xs" title="ممحاة">🧹</button>
                                 </div>
                                 <div class="flex gap-1.5">
-                                    <button onclick="clearCanvas(); playSound('clear');" class="px-2 py-0.5 bg-red-500 hover:bg-red-600 text-white font-bold text-[10px] rounded-lg border-2 border-slate-900 shadow">مسح اللوحة 🧹</button>
-                                    <button onclick="saveCanvasDrawing(); playSound('powerup');" class="px-2 py-0.5 bg-sky-500 hover:bg-sky-600 text-white font-bold text-[10px] rounded-lg border-2 border-slate-900 shadow">حفظ الرسمة 💾</button>
+                                    <button onclick="clearCanvas();" class="px-2 py-0.5 bg-red-500 text-white font-bold text-[10px] rounded-lg border-2 border-slate-900">مسح 🗑️</button>
+                                    <button onclick="saveCanvasDrawing();" class="px-2 py-0.5 bg-sky-500 text-white font-bold text-[10px] rounded-lg border-2 border-slate-900">حفظ 💾</button>
                                 </div>
                             </div>
                         </div>
@@ -691,108 +661,61 @@
     </div>
 
     <script>
-        // دالة لإصدار أصوات ريترو 8-بت تفاعلية مبهجة للأطفال
         let audioCtx = null;
         function playSound(type) {
             try {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
+                if (!audioCtx) { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+                if (audioCtx.state === 'suspended') { audioCtx.resume(); }
                 
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                
+                osc.connect(gain); gain.connect(audioCtx.destination);
                 const now = audioCtx.currentTime;
                 
                 if (type === 'coin') {
-                    // صوت العملة الذهبية الكلاسيكي
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(587.33, now); // D5
-                    osc.frequency.setValueAtTime(880, now + 0.1); // A5
-                    gain.gain.setValueAtTime(0.2, now);
-                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
-                    osc.start(now);
-                    osc.stop(now + 0.4);
+                    osc.type = 'sine'; osc.frequency.setValueAtTime(587.33, now); osc.frequency.setValueAtTime(880, now + 0.1);
+                    gain.gain.setValueAtTime(0.2, now); gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                    osc.start(now); osc.stop(now + 0.4);
                 } else if (type === 'jump') {
-                    // صوت القفزة الكرتونية
-                    osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(150, now);
-                    osc.frequency.exponentialRampToValueAtTime(600, now + 0.2);
-                    gain.gain.setValueAtTime(0.25, now);
-                    gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
-                    osc.start(now);
-                    osc.stop(now + 0.2);
-                } else if (type === 'powerup') {
-                    // صوت تطور البطل والفوز
-                    osc.type = 'square';
-                    osc.frequency.setValueAtTime(261.63, now); // C4
-                    osc.frequency.setValueAtTime(329.63, now + 0.08); // E4
-                    osc.frequency.setValueAtTime(392.00, now + 0.16); // G4
-                    osc.frequency.setValueAtTime(523.25, now + 0.24); // C5
-                    gain.gain.setValueAtTime(0.15, now);
-                    gain.gain.linearRampToValueAtTime(0.01, now + 0.45);
-                    osc.start(now);
-                    osc.stop(now + 0.45);
+                    osc.type = 'triangle'; osc.frequency.setValueAtTime(150, now); osc.frequency.exponentialRampToValueAtTime(600, now + 0.2);
+                    gain.gain.setValueAtTime(0.25, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+                    osc.start(now); osc.stop(now + 0.2);
                 } else if (type === 'clear') {
-                    // صوت مسح اللوحة
-                    osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(300, now);
-                    osc.frequency.exponentialRampToValueAtTime(80, now + 0.3);
-                    gain.gain.setValueAtTime(0.2, now);
-                    gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
-                    osc.start(now);
-                    osc.stop(now + 0.3);
+                    osc.type = 'sawtooth'; osc.frequency.setValueAtTime(300, now); osc.frequency.exponentialRampToValueAtTime(80, now + 0.3);
+                    gain.gain.setValueAtTime(0.2, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
+                    osc.start(now); osc.stop(now + 0.3);
+                } else if (type === 'powerup') {
+                    osc.type = 'square'; osc.frequency.setValueAtTime(261.63, now); osc.frequency.setValueAtTime(329.63, now + 0.08); osc.frequency.setValueAtTime(523.25, now + 0.24);
+                    gain.gain.setValueAtTime(0.15, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.45);
+                    osc.start(now); osc.stop(now + 0.45);
                 }
-            } catch (e) {
-                console.log("Audio context fallback / user interaction required first.");
-            }
+            } catch (e) { console.log("Audio requires interaction."); }
         }
 
-        // تفاعل وإدارة الصفحات والعرض
         function showPage(pageName) {
             const p1 = document.getElementById('page1');
             const p2 = document.getElementById('page2');
-            const b1 = document.getElementById('btn-page1');
-            const b2 = document.getElementById('btn-page2');
-            const bAll = document.getElementById('btn-pageall');
-
-            // تصفية وتحديث الأزرار بصرياً بأسلوب البكسل
-            [b1, b2, bAll].forEach(b => {
-                if (b) {
-                    b.classList.remove('bg-yellow-400', 'bg-emerald-400', 'bg-sky-400', 'text-slate-900');
-                    b.classList.add('bg-gray-500', 'text-white');
-                }
-            });
+            const btns = [document.getElementById('btn-page1'), document.getElementById('btn-page2'), document.getElementById('btn-pageall')];
+            
+            btns.forEach(b => { if(b) { b.classList.remove('bg-yellow-400', 'bg-emerald-400', 'bg-sky-400', 'text-slate-900'); b.classList.add('bg-gray-500', 'text-white'); }});
 
             if (pageName === 1) {
-                p1.style.display = 'flex';
-                p2.style.display = 'none';
-                if (b1) b1.classList.add('bg-yellow-400', 'text-slate-900');
+                p1.style.display = 'flex'; p2.style.display = 'none';
+                if(btns[0]) btns[0].classList.add('bg-yellow-400', 'text-slate-900');
             } else if (pageName === 2) {
-                p1.style.display = 'none';
-                p2.style.display = 'flex';
-                if (b2) b2.classList.add('bg-emerald-400', 'text-slate-900');
+                p1.style.display = 'none'; p2.style.display = 'flex';
+                if(btns[1]) btns[1].classList.add('bg-emerald-400', 'text-slate-900');
                 setTimeout(resizeCanvas, 50);
             } else {
-                p1.style.display = 'flex';
-                p2.style.display = 'flex';
-                if (bAll) bAll.classList.add('bg-sky-400', 'text-slate-900');
+                p1.style.display = 'flex'; p2.style.display = 'flex';
+                if(btns[2]) btns[2].classList.add('bg-sky-400', 'text-slate-900');
                 setTimeout(resizeCanvas, 50);
             }
         }
 
-        // دالة لضبط مقاس وتكبير الصفحات بحجم الـ A2 لتظهر متناسقة تماماً
         function scalePages() {
             const pages = document.querySelectorAll('.a2-page');
-            const screenWidth = window.innerWidth;
-            const padding = 40;
-            const targetWidth = screenWidth - padding;
-            
+            const targetWidth = window.innerWidth - 40;
             pages.forEach(page => {
                 if (targetWidth < 1684) {
                     const scale = targetWidth / 1684;
@@ -805,374 +728,304 @@
             });
         }
 
-        // مصفوفات لتخزين الخيارات المختارة لبناء البرومبت التلقائي والتحقق من التعبئة
         let selectedInspiringGames = [];
         let selectedAlAhsaItems = [];
         let selectedPrograms = [];
-        let completedFields = new Set(); // لحفظ الخانات التي تمت تعبئتها بنجاح
-        let canvasPainted = false; // هل قام الطفل بالرسم؟
+        let canvasPainted = false;
 
-        // قائمة بالقيم الافتراضية للخانات لمقارنتها ومنع احتساب النقاط قبل الكتابة الفعلية
-        const defaultPlaceholders = [
-            "اضغط هنا واكتب أسماء أبطال فريقك! 🚀",
-            "اكتب هنا اسم لعبتك الرائعة...",
-            "ما هي لعبتك باختصار؟ (جملة مشوقة تفهمها عائلتك)",
-            "مثال: مغامرات، قفز وبحث، حل ألغاز، سيارات ذكية",
-            "أين سيلعبها الناس؟ (مثال: آيباد، جوال، كمبيوتر)",
-            "من سيلعب لعبتك؟ (مثال: أصدقائي في المدرسة)",
-            "كيف تبدأ القصة المشوقة في لعبتك؟",
-            "ما الذي يحاول البطل تحقيقه؟ (مثال: إنقاذ الواحة)",
-            "أين تدور الأحداث؟ (مثال: وسط النخيل، في قرية تراثية)",
-            "كيف يبدو شكل البطل؟ وما هي ملابسه؟",
-            "ما هي الحركة الخاصة التي يتقنها؟ (مثال: القفز العالي)",
-            "من الذي يحاول منع البطل من الفوز في اللعبة؟",
-            "كيف يفوز اللاعب بالكامل؟ ومتى تنتهي طاقته ويخسر؟",
-            "كيف نتحكم باللاعب؟ (مثال: أزرار سهمية، لمس الشاشة)",
-            "ما الذي يجب على البطل تجنبه؟ (مثال: حفر طينية، كرات صخرية)",
-            "ماذا يلتقط البطل أثناء سيره؟ (تمور، نجوم ذهبية)",
-            "كيف تتدرج الصعوبة؟ هل توجد طرق سرية？",
-            "كيف تتدرج الصعوبة؟ هل توجد طرق سرية؟",
-            "ما المشكلة الذكية التي يحلها اللاعب؟ (مثال: مفتاح مخبأ)",
-            "أين يقف الأشرار الصغار لحراسة الأبواب؟",
-            "كيف تبدو الرسوم؟ (مثال: بكسل كلاسيكي، كارتون ملون)",
-            "ما هي الألوان الطاغية؟ (مثال: أخضر النخيل، أصفر الرمال)",
-            "كيف تبدو قائمة البداية وأشكال أزرار اللعب؟",
-            "كيف يبدو صوت القفز وصوت الفوز وصوت الخسارة؟",
-            "ما الأفعال التي تزيد رصيد اللاعب من الذهب؟",
-            "ماذا يشتري اللاعب بنقاطه؟ (ملابس بطل جديدة، طاقة إضافية)",
-            "كيف يصبح البطل أسرع أو أكثر تحملاً للضربات؟",
-            "............",
-            "اصنع لي لعبة مغامرات ثنائية الأبعاد في واحة الأحساء الجميلة. البطة اللطيفة في بحيرة الأصفر تبحث عن التمور اللذيذة لتجمعها، بينما يتسلق البطل جبل القارة متجاوزاً الحفر والعقبات ليفتح الكنز السري للبشت الحساوي الذهبي!"
-        ];
-
-        // دالة لاحتساب ومزامنة النقاط وعرض التقدم بشكل حي
-        function updatePoints() {
-            let score = 0;
-
-            // 1. حساب نقاط الخانات النصية المعبأة (نقطة واحدة لكل خانة مكتوبة بالكامل وليست افتراضية)
-            const editableElements = document.querySelectorAll('[contenteditable="true"]');
-            editableElements.forEach(el => {
-                const text = el.innerText.trim();
-                const id = el.id || el.getAttribute('placeholder') || text;
+        // دالة تصفير اللعبة بالكامل
+        function resetGame() {
+            if(confirm("هل أنت متأكد أنك تريد مسح كل شيء والبدء من جديد؟")) {
+                // تفريغ كل حقول النص المكتوبة لتعود الـ Placeholders
+                document.querySelectorAll('[contenteditable="true"]').forEach(el => el.innerText = '');
                 
-                // إذا كتب الطفل شيئاً حقيقياً غير الافتراضي وغير الفارغ
-                if (text !== "" && !defaultPlaceholders.includes(text)) {
-                    score += 1;
-                    if (!completedFields.has(id)) {
-                        completedFields.add(id);
-                    }
-                } else {
-                    completedFields.delete(id);
-                }
-            });
+                // إعادة تعيين المصفوفات
+                selectedInspiringGames = [];
+                selectedAlAhsaItems = [];
+                selectedPrograms = [];
+                
+                // إزالة التحديد عن صناديق الاختيار
+                document.querySelectorAll('.check-box').forEach(box => {
+                    box.innerHTML = '';
+                    box.classList.remove('bg-green-100');
+                });
 
-            // 2. حساب ألعاب الإلهام المختارة (نقطة واحدة لكل اختيار)
-            score += selectedInspiringGames.length;
+                // إزالة التحديد عن الشارات
+                document.querySelectorAll('.identity-badge').forEach(badge => {
+                    badge.classList.remove('bg-orange-500', 'text-white', 'border-solid', 'border-orange-950', 'shadow-none');
+                });
 
-            // 3. حساب البرامج الذكية المساعدة (نقطة واحدة لكل اختيار)
-            score += selectedPrograms.length;
-
-            // 4. حساب عناصر تراث الأحساء (10 نقاط كاملة لكل شارة مختارة!)
-            score += (selectedAlAhsaItems.length * 10);
-
-            // 5. حساب لوحة الرسم (نقطة واحدة إذا قام بالرسم)
-            if (canvasPainted) {
-                score += 1;
+                // مسح اللوحة وإعادة النقاط للصفر
+                if(ctx && canvas) { ctx.clearRect(0, 0, canvas.width, canvas.height); }
+                canvasPainted = false;
+                
+                playSound('clear');
+                updateLivePrompt(); // سيعود فارغاً
+                updatePoints(); // ستعود صفر
+                showPage(1);
             }
-
-            // تحديث واجهة لوحة الصدارة
-            const scoreDisplay = document.getElementById('player-score');
-            if (scoreDisplay) {
-                scoreDisplay.innerText = score;
-            }
-
-            // تحديث الرتبة الإبداعية بناءً على رصيد النقاط
-            const rankDisplay = document.getElementById('player-rank');
-            let rank = "مبتدئ 🌟";
-            if (score >= 120) {
-                rank = "مبتكر أسطوري 👑";
-            } else if (score >= 60) {
-                rank = "مصمم محترف 🚀";
-            } else if (score >= 20) {
-                rank = "مطور صاعد ⚡";
-            }
-            if (rankDisplay) rankDisplay.innerText = rank;
-
-            // تحديث شريط التقدم نحو اللقب الأسطوري (الهدف النهائي: 120 نقطة)
-            const progressPercent = Math.min(Math.round((score / 120) * 100), 100);
-            const progressBar = document.getElementById('score-progress');
-            const progressText = document.getElementById('progress-text');
-            if (progressBar) progressBar.style.width = `${progressPercent}%`;
-            if (progressText) progressText.innerText = `${progressPercent}%`;
         }
 
-        // مراقبة مدخلات لوحة المفاتيح
+        // حساب النقاط بشكل ديناميكي
+        function updatePoints() {
+            let score = 0;
+            // جمع نقاط الحقول النصية التي تحتوي على نصوص حقيقية
+            document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+                if (el.id !== 'ai-prompt-box' && el.innerText.trim() !== "") {
+                    score += 1;
+                }
+            });
+            score += selectedInspiringGames.length;
+            score += selectedPrograms.length;
+            score += (selectedAlAhsaItems.length * 10);
+            if (canvasPainted) score += 1;
+
+            document.getElementById('player-score').innerText = score;
+
+            let rank = "مبتدئ 🌟";
+            if (score >= 120) rank = "مبتكر أسطوري 👑";
+            else if (score >= 60) rank = "مصمم محترف 🚀";
+            else if (score >= 20) rank = "مطور صاعد ⚡";
+            document.getElementById('player-rank').innerText = rank;
+
+            const progress = Math.min(Math.round((score / 120) * 100), 100);
+            document.getElementById('score-progress').style.width = `${progress}%`;
+            document.getElementById('progress-text').innerText = `${progress}%`;
+        }
+
         function handleTextInput(el) {
+            updateLivePrompt();
             updatePoints();
         }
 
-        // التعامل مع تفعيل وإلغاء خيارات الألعاب والبرامج
         function toggleCheck(el, name) {
             const box = el.querySelector('.check-box');
             const isInspire = el.classList.contains('game-inspire');
             const isTool = el.classList.contains('tools-use');
 
             if (box.innerHTML === '✓') {
-                box.innerHTML = '';
-                box.classList.remove('bg-green-100');
+                box.innerHTML = ''; box.classList.remove('bg-green-100');
                 playSound('clear');
                 if (isInspire) selectedInspiringGames = selectedInspiringGames.filter(g => g !== name);
                 if (isTool) selectedPrograms = selectedPrograms.filter(p => p !== name);
             } else {
-                box.innerHTML = '✓';
-                box.classList.add('bg-green-100');
+                box.innerHTML = '✓'; box.classList.add('bg-green-100');
                 playSound('coin');
                 if (isInspire) selectedInspiringGames.push(name);
                 if (isTool) selectedPrograms.push(name);
             }
-            updateLivePrompt();
-            updatePoints();
+            updateLivePrompt(); updatePoints();
         }
 
-        // تفعيل وإلغاء تفعيل شارات تراث الأحساء (10 نقاط)
         function toggleBadge(el, itemName) {
-            el.classList.toggle('bg-orange-500');
-            el.classList.toggle('text-white');
-            el.classList.toggle('border-solid');
-            el.classList.toggle('border-orange-950');
+            el.classList.toggle('bg-orange-500'); el.classList.toggle('text-white');
+            el.classList.toggle('border-solid'); el.classList.toggle('border-orange-950');
             el.classList.toggle('shadow-none');
 
             if (el.classList.contains('bg-orange-500')) {
-                playSound('powerup');
-                selectedAlAhsaItems.push(itemName);
+                playSound('powerup'); selectedAlAhsaItems.push(itemName);
             } else {
-                playSound('clear');
-                selectedAlAhsaItems = selectedAlAhsaItems.filter(i => i !== itemName);
+                playSound('clear'); selectedAlAhsaItems = selectedAlAhsaItems.filter(i => i !== itemName);
             }
-            updateLivePrompt();
-            updatePoints();
+            updateLivePrompt(); updatePoints();
         }
 
-        // دالة الصياغة التلقائية للبرومبت الذكي
+        // دالة سحب كافة البيانات المعبأة لتركيب الـ Prompt الذكي (تم تحديثها لتكون ديناميكية وتسحب كل شيء)
         function updateLivePrompt() {
-            const gameNameBox = document.getElementById('game-name');
-            const creatorsBox = document.getElementById('creators-input');
             const promptBox = document.getElementById('ai-prompt-box');
-            
-            let gameName = gameNameBox ? gameNameBox.innerText.replace("اكتب هنا اسم لعبتك الرائعة...", "").trim() : "";
-            let creators = creatorsBox ? creatorsBox.innerText.replace("اضغط هنا واكتب أسماء أبطال فريقك! 🚀", "").trim() : "";
-            
-            if (!gameName) gameName = "المغامرة السحرية";
-            if (!creators) creators = "فريق الأبطال";
+            if(!promptBox) return;
 
-            let gamesStr = selectedInspiringGames.length > 0 ? selectedInspiringGames.join(' و ') : "ألعاب المغامرات الرائعة";
-            let alAhsaStr = selectedAlAhsaItems.length > 0 ? selectedAlAhsaItems.join('، و') : "عناصر التراث الأحسائي الجميل";
-            let programsStr = selectedPrograms.length > 0 ? `باستخدام برامج ذكية مثل: (${selectedPrograms.join(', ')})` : "";
+            const getVal = (id) => {
+                const el = document.getElementById(id);
+                return el && el.innerText.trim() !== "" ? el.innerText.trim() : null;
+            };
 
-            let fullPrompt = `اصنع لي لعبة ثقافية وبصورة بكسل آرت مخصصة للأطفال، من ابتكار المبتكرين الصغار: [${creators}].\n`;
-            fullPrompt += `أسميناها لعبة: [${gameName}].\n`;
-            fullPrompt += `فكرة اللعبة مستلهمة وبشكل كرتوني ممتع من لعبة [${gamesStr}].\n`;
-            fullPrompt += `نريد دمج عناصر الهوية والأصالة الأحسائية العريقة مثل: [${alAhsaStr}] بطريقة رائعة وتفاعلية داخل المراحل وأعداء اللعبة ليربح البطل الجوائز ويتعلم تراث وطنه الغالي.\n`;
-            if (programsStr) {
-                fullPrompt += `سنقوم بتطوير وهندسة هذه اللعبة التفاعلية ${programsStr} لتكون جاهزة للتشغيل والاستخدام مباشرة!`;
+            const creators = getVal('p1-creators') || "فريق المبتكرين الصغار";
+            
+            let promptParts = [];
+            promptParts.push(`مرحباً للذكاء الاصطناعي! الرجاء برمجة لعبة مخصصة للأطفال من ابتكار [${creators}].`);
+            promptParts.push(`تفاصيل اللعبة التي قمنا بتصميمها هي:\n`);
+
+            // سحب كافة الحقول التي كتب فيها اللاعب مباشرة عبر المرور عليها برمجياً
+            const p1 = document.getElementById('page1');
+            const bubbles = p1.querySelectorAll('.bubble-container');
+            
+            bubbles.forEach(bubble => {
+                const tagEl = bubble.querySelector('.bubble-tag');
+                const inputEl = bubble.querySelector('.empty-bubble');
+                // إذا كتب الطفل شيئاً في الخانة، قم بسحب العنوان والمحتوى
+                if(tagEl && inputEl && inputEl.innerText.trim() !== '') {
+                    const label = tagEl.innerText.replace(':', '').trim(); // تنظيف العنوان من النقطتين
+                    const value = inputEl.innerText.trim();
+                    promptParts.push(`🔹 ${label}: ${value}`);
+                }
+            });
+
+            // سحب الألعاب الملهمة بما فيها الخانة اليدوية "أخرى"
+            let allGames = [...selectedInspiringGames];
+            const otherGames = getVal('other-games');
+            if (otherGames) allGames.push(otherGames);
+            
+            if (allGames.length > 0) {
+                promptParts.push(`\n💡 أسلوب اللعب مستوحى من: ${allGames.join(' و ')}.`);
             }
 
-            if (promptBox) {
-                promptBox.innerText = fullPrompt;
+            // سحب عناصر تراث الأحساء
+            if (selectedAlAhsaItems.length > 0) {
+                promptParts.push(`🌴 التراث الأحسائي المطلوب دمجه: [${selectedAlAhsaItems.join('، ')}].`);
+            }
+
+            // سحب البرامج المستخدمة
+            if (selectedPrograms.length > 0) {
+                promptParts.push(`💻 سيتم برمجة اللعبة باستخدام: ${selectedPrograms.join('، ')}.`);
+            }
+
+            // إظهار النص فقط إذا كان هناك أي بيانات مدخلة في أي مكان
+            let hasContent = false;
+            document.querySelectorAll('#page1 [contenteditable="true"]').forEach(el => {
+                if (el.innerText.trim() !== '') hasContent = true;
+            });
+            
+            if (hasContent || selectedAlAhsaItems.length > 0 || allGames.length > 0 || selectedPrograms.length > 0) {
+                promptBox.innerText = promptParts.join('\n');
+            } else {
+                promptBox.innerText = ""; // يتركه فارغاً ليظهر الـ Placeholder
             }
         }
 
-        // منطق قماش الرسم التفاعلي المطور للأطفال مع الفرشاة والطوابع السحرية
         let canvas, ctx, drawing = false;
         let brushColor = '#e11d48';
-        let currentTool = 'brush'; // 'brush' or 'stamp'
+        let currentTool = 'brush'; 
         let currentStampEmoji = '🌴';
 
         function initCanvas() {
             canvas = document.getElementById('drawing-canvas');
             if (!canvas) return;
             ctx = canvas.getContext('2d');
-            
             resizeCanvas();
-
-            // أحداث الماوس للرسم الحر أو وضع الطوابع السحرية
             canvas.addEventListener('mousedown', startDrawing);
             canvas.addEventListener('mousemove', draw);
             canvas.addEventListener('mouseup', stopDrawing);
             canvas.addEventListener('mouseout', stopDrawing);
-
-            // أحداث اللمس للأجهزة اللوحية
             canvas.addEventListener('touchstart', startDrawingTouch, { passive: false });
             canvas.addEventListener('touchmove', drawTouch, { passive: false });
             canvas.addEventListener('touchend', stopDrawing);
         }
 
         function resizeCanvas() {
-            if (!canvas) return;
+            if (!canvas || canvas.clientWidth === 0) return;
             const rect = canvas.getBoundingClientRect();
-            
-            // لحفظ الرسم الحالي للأطفال عند تدوير أو تعديل مقاس الشاشة
             const tempCanvas = document.createElement('canvas');
-            tempCanvas.width = canvas.width;
-            tempCanvas.height = canvas.height;
+            tempCanvas.width = canvas.width; tempCanvas.height = canvas.height;
             const tempCtx = tempCanvas.getContext('2d');
             tempCtx.drawImage(canvas, 0, 0);
-
-            canvas.width = rect.width;
-            canvas.height = rect.height;
-
-            // استعادة الرسمة
+            
+            canvas.width = rect.width; canvas.height = rect.height;
             ctx.drawImage(tempCanvas, 0, 0);
             setupCanvasBrush();
         }
 
         function setupCanvasBrush() {
             ctx.strokeStyle = brushColor;
-            ctx.lineWidth = 6;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
+            ctx.lineWidth = brushColor === '#ffffff' ? 20 : 6; // الممحاة أسمك
+            ctx.lineCap = 'round'; ctx.lineJoin = 'round';
         }
 
         function selectTool(toolType, btnElement, stampChar = '') {
             currentTool = toolType;
-            if (stampChar) {
-                currentStampEmoji = stampChar;
-            }
+            if (stampChar) currentStampEmoji = stampChar;
             playSound('coin');
-
-            // تحديث الشكل الخارجي للأزرار لتحديد الزر النشط
             document.querySelectorAll('.stamp-btn').forEach(b => b.classList.remove('active'));
             btnElement.classList.add('active');
+            
+            // في حال اختيار طابع، نعيد الألوان لشكلها الطبيعي (إلغاء تكبير الزر)
+            if(toolType === 'stamp') {
+                document.querySelectorAll('.active-brush-btn').forEach(b => b.classList.remove('scale-110', 'active-brush-btn'));
+            }
         }
 
         function setBrushColor(color, btn) {
             brushColor = color;
-            ctx.strokeStyle = color;
+            currentTool = 'brush'; // تفعيل الفرشاة تلقائياً عند تغيير اللون
+            setupCanvasBrush();
             playSound('coin');
-            
-            // تحديد الزر الفعال بصرياً
             document.querySelectorAll('.active-brush-btn').forEach(b => b.classList.remove('scale-110', 'active-brush-btn'));
             btn.classList.add('scale-110', 'active-brush-btn');
+            
+            // تفعيل زر الفرشاة بصرياً
+            document.querySelectorAll('.stamp-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.stamp-btn[onclick*="brush"]').classList.add('active');
         }
 
         function clearCanvas() {
+            playSound('clear');
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            canvasPainted = false;
-            updatePoints();
+            canvasPainted = false; updatePoints();
         }
 
-        // دالة حفظ الرسمة محلياً للأطفال
         function saveCanvasDrawing() {
             const dataURL = canvas.toDataURL('image/png');
             const link = document.createElement('a');
-            link.download = 'رسمة_لعبتي_الجميلة.png';
-            link.href = dataURL;
-            link.click();
+            link.download = 'رسمة_لعبتي.png';
+            link.href = dataURL; link.click();
         }
 
         function getMousePos(e) {
             const rect = canvas.getBoundingClientRect();
-            return {
-                x: e.clientX - rect.left,
-                y: e.clientY - rect.top
-            };
+            return { x: e.clientX - rect.left, y: e.clientY - rect.top };
         }
 
         function startDrawing(e) {
             const pos = getMousePos(e);
-            if (currentTool === 'stamp') {
-                // وضع الطابع السحري فوراً
-                drawStamp(pos.x, pos.y);
-                return;
-            }
-            drawing = true;
-            ctx.beginPath();
-            ctx.moveTo(pos.x, pos.y);
-            playSound('jump');
-            
-            // احتساب الرسم كنقاط
-            if (!canvasPainted) {
-                canvasPainted = true;
-                updatePoints();
-            }
+            if (currentTool === 'stamp') { drawStamp(pos.x, pos.y); return; }
+            drawing = true; ctx.beginPath(); ctx.moveTo(pos.x, pos.y);
+            if (!canvasPainted) { canvasPainted = true; updatePoints(); }
         }
 
         function draw(e) {
             if (!drawing || currentTool !== 'brush') return;
             const pos = getMousePos(e);
-            ctx.lineTo(pos.x, pos.y);
-            ctx.stroke();
+            ctx.lineTo(pos.x, pos.y); ctx.stroke();
         }
 
-        function stopDrawing() {
-            drawing = false;
-        }
+        function stopDrawing() { drawing = false; }
 
         function drawStamp(x, y) {
-            ctx.save();
-            ctx.font = '36px Changa';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(currentStampEmoji, x, y);
-            ctx.restore();
-            playSound('coin');
-            
-            // احتساب الطابع كنقاط
-            if (!canvasPainted) {
-                canvasPainted = true;
-                updatePoints();
-            }
+            ctx.save(); ctx.font = '36px Changa'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            ctx.fillText(currentStampEmoji, x, y); ctx.restore();
+            playSound('jump');
+            if (!canvasPainted) { canvasPainted = true; updatePoints(); }
         }
 
-        // دعم شاشات اللمس الكامل للأجهزة الذكية والآيباد
         function getTouchPos(e) {
             const rect = canvas.getBoundingClientRect();
             const touch = e.touches[0];
-            return {
-                x: touch.clientX - rect.left,
-                y: touch.clientY - rect.top
-            };
+            return { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
         }
 
         function startDrawingTouch(e) {
-            e.preventDefault();
-            const pos = getTouchPos(e);
-            if (currentTool === 'stamp') {
-                drawStamp(pos.x, pos.y);
-                return;
-            }
-            drawing = true;
-            ctx.beginPath();
-            ctx.moveTo(pos.x, pos.y);
-            playSound('jump');
-            
-            if (!canvasPainted) {
-                canvasPainted = true;
-                updatePoints();
-            }
+            e.preventDefault(); const pos = getTouchPos(e);
+            if (currentTool === 'stamp') { drawStamp(pos.x, pos.y); return; }
+            drawing = true; ctx.beginPath(); ctx.moveTo(pos.x, pos.y);
+            if (!canvasPainted) { canvasPainted = true; updatePoints(); }
         }
 
         function drawTouch(e) {
             e.preventDefault();
             if (!drawing || currentTool !== 'brush') return;
             const pos = getTouchPos(e);
-            ctx.lineTo(pos.x, pos.y);
-            ctx.stroke();
+            ctx.lineTo(pos.x, pos.y); ctx.stroke();
         }
 
-        // تشغيل كل الإعدادات والتطبيقات المساعدة عند تهيئة صفحة الويب
         window.onload = function() {
             scalePages();
             initCanvas();
-            showPage(1); // عرض المرحلة الأولى بشكل افتراضي لسهولة التصفح
-            updateLivePrompt();
-            updatePoints(); // تهيئة النقاط عند البداية
+            showPage(1);
+            updateLivePrompt(); // سيعرض الصندوق فارغاً في البداية لاختبار الـ Placeholder
+            updatePoints(); // النقاط ستبدأ من 0
         };
 
-        window.addEventListener('resize', () => {
-            scalePages();
-            resizeCanvas();
-        });
+        window.addEventListener('resize', () => { scalePages(); resizeCanvas(); });
     </script>
 </body>
 </html>
